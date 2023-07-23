@@ -8,6 +8,14 @@
   
 <style>
 
+/* Media query per schermi più piccoli, come i dispositivi mobili */
+@media screen and (max-width: 600px) {
+  
+  
+}
+
+
+
    html,body {
       padding: 0;
       margin: 0;
@@ -19,6 +27,8 @@
    /* CLASSI CON ID */
 
    #app_container{
+      height: 100%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: stretch;
@@ -32,7 +42,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 100%;
       background-color: #383840FF;
       height: 50px;
    }
@@ -43,7 +52,6 @@
       align-items: center;
       height: calc(100vh - 110px);
       overflow-y: auto; 
-    
    }
 
 
@@ -99,10 +107,14 @@
 
 
      <div id="up_bar">
+      <div style="margin-inline-start: 20px;"></div>
       <button class="bar_button"><i class="material-icons" style="font-size: 30px; color: white;">notifications</i></button>
+      <div style="flex: 1;"></div>
       <img src="https://i.ibb.co/BTdcB5B/Trasparent-icon.png"  style="inline-size: 40px; block-size: 40px;">
+      <div style="flex: 1;"></div>
       <button class="bar_button"><i class="material-icons" style="font-size: 30px; color: white;">account_circle</i></button>
-     </div>
+      <div style="margin-inline-start: 20px;"></div>
+    </div>
 
  
   
@@ -129,15 +141,19 @@
           <div style="margin-inline-start: 20px;"></div>
           <h2 class="card_text">Per qualsiasi violazione non esitare a contattarci a: <a href="mailto:ardugiack@gmail.com" style="color: white;">ardugiack@gmail.com</a></h2>
       </div>
+    <br>
+
     </div>
 
 
     <div id="under_bar">
+      <div style="margin-inline-start: 20px;"></div>
       <button id="community_button" style="background-color: transparent; font-weight: bold; border: none; display: flex; flex-direction: column; align-items: center; color: white; font-family: 'Maven Pro';"><i class="material-icons" style="font-size: 35px;">search</i> Team </button>
-      <div style="margin-inline-start: 100px"></div>
+      <div style="flex: 1;"></div>
       <button id="home_button" style="font-weight: bold; background-color: transparent; border: none; display: flex; flex-direction: column; align-items: center; color: white; font-family: 'Maven Pro';"><i class="material-icons" style="font-size: 35px;">home</i> Home</button>
-      <div style="margin-inline-start: 100px"></div>
+      <div style="flex: 1;"></div>
       <button id="analitycs_button" style="font-weight: bold; background-color: transparent; border: none; display: flex; flex-direction: column; align-items: center; color: white; font-family: 'Maven Pro';"><i class="material-icons" style="font-size: 35px;">add_circle</i>Pubblica</button>
+      <div style="margin-inline-start: 20px;"></div>
     </div>
 
 

@@ -8,11 +8,68 @@
   
 <style>
 
-@media screen and (max-width: 300px) {
+/* Font-size scaling for screens with width up to 479px */
+@media only screen and (max-width: 479px) {
   .card {
-    font-size: 40px; /* Dimensione raddoppiata del testo */
+    font-size: 13.0pt;
+  }
+
+  .card {
+    font-size: 16.0pt;
+  }
+
+  .card {
+    font-size: 12.0pt;
   }
 }
+
+/* Font-size scaling for screens with width between 480px and 767px */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .card {
+    font-size: 14.0pt;
+  }
+
+  .card {
+    font-size: 18.0pt;
+  }
+
+  .card {
+    font-size: 13.0pt;
+  }
+}
+
+/* Font-size scaling for screens with width between 768px and 1279px */
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .card {
+    font-size: 15.0pt;
+  }
+
+  .card {
+    font-size: 20.0pt;
+  }
+
+  .card {
+    font-size: 13.0pt;
+  }
+}
+
+/* Font-size scaling for screens with width of 1280px and larger */
+@media only screen and (min-width: 1280px) {
+  .card {
+    font-size: 15.0pt;
+  }
+
+  .card {
+    font-size: 20.0pt;
+  }
+
+  .card {
+    font-size: 13.0pt;
+  }
+}
+
+
+
 
    html,body {
       padding: 0;

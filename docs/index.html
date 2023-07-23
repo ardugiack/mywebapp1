@@ -1,24 +1,23 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Maven+Pro">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&amp;display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web app 1</title>
   <style>
 
 
 
 
-    body {
+body {
       font-family: 'Nunito Sans', sans-serif;
       background-color: #081c15;
       justify-content: center; /* Centra verticalmente */
       background-color: #081c15;
       margin: 0; 
       padding: 0; 
+
     }
 
     
@@ -41,8 +40,8 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-  height: fit-content; /* Imposta l'altezza a 100% della altezza della finestra del browser */
-  width: fit-content;
+  height: 100vh; /* Imposta l'altezza a 100% della altezza della finestra del browser */
+  max-width: 800px;
   overflow-y: hidden;
   flex-grow: 1; /* Fai espandere il container verticalmente */
 }
@@ -401,8 +400,8 @@
         }
 
         canvas {
-          width: fit-content;
-          height: fit-content;
+          width: 100%;
+          height: 100%;
         }
         </style>
 

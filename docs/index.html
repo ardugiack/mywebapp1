@@ -9,21 +9,29 @@
 <style>
 
 
-   /* LAYOUT RESPONSIVI */
-
-   /* Per telefoni */
-   
 @media only screen and (max-width: 767px) {
-  #home_page .card_text {
-    font-size: 50px ; 
+    #home_page {
+      width:  200%; /* Riduci il font-size del 20% rispetto al font-size di riferimento */
+      height: 200%;
+    }
+
+    #up_bar {
+      width:  200%; /* Riduci il font-size del 20% rispetto al font-size di riferimento */
+      height: 200%;
+    }
+
+    #under_bar {
+      width:  200%; /* Riduci il font-size del 20% rispetto al font-size di riferimento */
+      height: 200%;
+    }
   }
+   
 
-  #up_bar .material-icons {
-    font-size: 40px; 
-  }
-}
+  
 
 
+
+   
 
 
      body {
@@ -49,18 +57,19 @@
    }
 
    #up_bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #383840FF;
-      height: 8%;
-   }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #383840FF;
+    height: 50px;
+    font-size: 30px; /* Imposta il font-size delle icone nel bar */
+  }
 
    #home_page{
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: calc(100vh - 18%);
+      height: calc(100vh - 110px);
       overflow-y: auto; 
    }
 
@@ -70,7 +79,7 @@
     justify-content: center; 
     align-items: center; 
     background-color: #383840FF; 
-    height: 10%;
+    height: 60px;
    
    }
 
@@ -99,7 +108,7 @@
       }   
 
       #up_bar .material-icons {
-        font-size: 30px;
+        font-size: 250%;
      }
 
 </style>

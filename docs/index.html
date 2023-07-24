@@ -15,7 +15,11 @@
    
 @media only screen and (max-width: 767px) {
   #home_page .card_text {
-    font-size: 29px; /* Aggiorna la dimensione del font per i telefoni */
+    font-size: 50px ; 
+  }
+
+  #up_bar .material-icons {
+    font-size: 40px; 
   }
 }
 
@@ -49,14 +53,14 @@
       justify-content: space-between;
       align-items: center;
       background-color: #383840FF;
-      height: 50px;
+      height: 8%;
    }
 
    #home_page{
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: calc(100vh - 110px);
+      height: calc(100vh - 18%);
       overflow-y: auto; 
    }
 
@@ -66,7 +70,7 @@
     justify-content: center; 
     align-items: center; 
     background-color: #383840FF; 
-    height: 60px;
+    height: 10%;
    
    }
 
@@ -94,7 +98,9 @@
         margin-block-end: 10px;
       }   
 
-
+      #up_bar .material-icons {
+        font-size: 30px;
+     }
 
 </style>
 </head>
@@ -112,15 +118,15 @@
     <div id="logged">
 
 
-     <div id="up_bar">
-      <div style="margin-inline-start: 20px;"></div>
-      <button class="bar_button"><i class="material-icons" style="font-size: 30px; color: white;">notifications</i></button>
-      <div style="flex: 1;"></div>
-      <img src="https://i.ibb.co/BTdcB5B/Trasparent-icon.png"  style="inline-size: 40px; block-size: 40px;">
-      <div style="flex: 1;"></div>
-      <button class="bar_button"><i class="material-icons" style="font-size: 30px; color: white;">account_circle</i></button>
-      <div style="margin-inline-start: 20px;"></div>
-    </div>
+      <div id="up_bar">
+        <div style="margin-inline-start: 20px;"></div>
+        <button class="bar_button"><i class="material-icons" style="color: white;">notifications</i></button>
+        <div style="flex: 1;"></div>
+        <img src="https://i.ibb.co/BTdcB5B/Trasparent-icon.png"  style="inline-size: 40px; block-size: 40px;">
+        <div style="flex: 1;"></div>
+        <button class="bar_button"><i class="material-icons" style="color: white;">account_circle</i></button>
+        <div style="margin-inline-start: 20px;"></div>
+      </div>
 
  
   

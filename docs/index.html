@@ -347,6 +347,17 @@
      justify-content: center;
     }
 
+    #send_datas_button{
+      border: transparent;
+      border-radius: 12px;
+      background-color: #354f52;
+      color: white;
+      font-family: 'Maven Pro';
+      font-size: 14px;
+      padding: 5px;
+      width: 30%;
+    }
+
 
 </style>
 </head>
@@ -543,27 +554,27 @@
           
               <div class="publish_imput_container">
                 <p class="publish_imput_preview_text" style="margin-bottom: 5px;">Nome</p>
-              <input class="publish_imput" id="name_publish_imput" required="">
+              <input class="publish_imput" id="name" required="">
              </div>
         
           <div class="publish_imput_container">
             <p class="publish_imput_preview_text" style="margin-bottom: 5px;">Città, regione</p>
-          <input class="publish_imput" id="region_publish_imput" required="">
+          <input class="publish_imput" id="region" required="">
          </div>
         
           <div class="publish_imput_container">
             <p class="publish_imput_preview_text" style="margin-bottom: 5px;">Stipendio ideale</p>
-          <input class="publish_imput" id="salary_publish_imput" required="">
+          <input class="publish_imput" id="salary" required="">
          </div>
         
          <div class="publish_imput_container">
           <p class="publish_imput_preview_text" style="margin-bottom: 5px;">Descrizione</p>
-        <input class="publish_imput" id="post_content_publish_imput" required="">
+        <input class="publish_imput" id="description" required="">
         </div>
         
         <div class="publish_imput_container">
           <p class="publish_imput_preview_text" style="margin-bottom: 5px;">Email</p>
-        <input class="publish_imput" id="email_publish_imput" required="">
+        <input class="publish_imput" id="send_email" required="">
         </div>
         
         
@@ -571,7 +582,7 @@
         <br>
         <br>
         
-        <button id="publish_post_button">Pubblica</button>
+        <button id="send_datas_button" onclick="submitData()">Pubblica</button>
         
         <br>
         <br>
@@ -602,9 +613,14 @@
 
 
 
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-database.js"></script>
+ <!-- Carica la versione 8.6.1 delle librerie di Firebase -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+
+
+
   <script>
 
 
@@ -701,6 +717,10 @@ document.getElementById("publish_button").addEventListener("click", function() {
         });
     }
 
+
+
+
+
     // Funzione di accesso
     function login() {
       var email = document.getElementById("login-email").value;
@@ -727,6 +747,12 @@ document.getElementById("publish_button").addEventListener("click", function() {
 
 
 
+
+
+
+        // ELIMINAZIONE ACCOUNT
+      
+
     function deleteAccount() {
         const user = firebase.auth().currentUser;
     
@@ -748,6 +774,9 @@ document.getElementById("publish_button").addEventListener("click", function() {
         }
       }
     
+
+
+
       document.getElementById("delete_account_button").addEventListener("click", function() {
         // Nascondi il pulsante e mostra il formulario di conferma
         document.getElementById("delete_account_button").style.display = "none";
@@ -768,6 +797,38 @@ document.getElementById("publish_button").addEventListener("click", function() {
         document.getElementById("delete_account_button").style.display = "block";
         document.getElementById("confirmation_form").style.display = "none";
       });
+
+
+
+// Funzione per inviare i dati al database
+function submitData() {
+  var uid = firebase.auth().currentUser.uid;
+  var name = document.getElementById("name").value;
+  var region = document.getElementById("region").value;
+  var salary = document.getElementById("salary").value;
+  var description = document.getElementById("description").value;
+  var send_email = document.getElementById("send_email").value;
+
+
+  // Riferimento al percorso nel database usando l'UID e il bucket
+  var databaseRef = firebase.database().ref("user_posts/" + uid);
+
+  // Inserisci i dati nel database come oggetto
+  databaseRef.set({
+    name: name,
+    region: region,
+    salary: salary,
+    description: description,
+    email: send_email
+
+  }).then(function() {
+    // Operazione completata con successo
+    alert("Dati inviati con successo al database!");
+  }).catch(function(error) {
+    // Gestisci eventuali errori
+    alert("Si è verificato un errore durante l'invio dei dati: " + error);
+  });
+}
 
       
   </script>

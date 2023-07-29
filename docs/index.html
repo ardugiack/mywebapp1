@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Maven+Pro">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="icon" type="image/x-icon" href="https://i.ibb.co/BTdcB5B/Trasparent-icon.png">
   <title>Trova lavoro velocemente</title>
   
 <style>
@@ -26,7 +27,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 100vh;
+      block-size: 100vh;
       overflow-y: auto; 
 }
 
@@ -36,7 +37,7 @@
       flex-direction: column;
       align-items: stretch;
       justify-content: flex-start;
-      height: 100vh; 
+      block-size: 100vh; 
       overflow-y: hidden;
       flex-grow: 1;
    }
@@ -46,7 +47,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: #383840FF;
-    height: 50px;
+    block-size: 50px;
     font-size: 30px; /* Imposta il font-size delle icone nel bar */
   }
 
@@ -54,7 +55,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: calc(100vh - 110px);
+      block-size: calc(100vh - 110px);
       overflow-y: auto; 
    }
 
@@ -65,9 +66,9 @@
       flex-direction: column;
       justify-content: flex-start;
       flex-grow: 1; 
-      max-height: calc(100vh - 110px);
+      max-block-size: calc(100vh - 110px);
       overflow-y: auto; 
-      height: 100vh;
+      block-size: 100vh;
       font-family: 'Maven Pro';
     }
 
@@ -78,21 +79,19 @@
     justify-content: center; 
     align-items: center; 
     background-color: #383840FF; 
-    height: 60px;
+    block-size: 60px;
    
    }
 
 
    #publish_interface{
-    background-color: #1e1f23;
-      align-items: center;
       display: flex;
+      background-color: #1e1f23;
+      align-items: center;
       flex-direction: column;
-      justify-content: flex-start;
       flex-grow: 1; 
-      max-height: calc(100vh - 110px);
+      max-block-size: calc(100vh - 110px);
       overflow-y: auto; 
-      height: 100vh;
       font-family: 'Maven Pro';
     }
 
@@ -113,7 +112,7 @@
     font-family: 'Maven Pro';
       padding: 10px 5px;
       padding-inline: 20px;
-      width: 400px;
+      inline-size: 50%;
       background-color: #383840FF;
       border-radius: 15px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -147,11 +146,11 @@
     .access_button::before {
       content: "";
       position: absolute;
-      top: 50%;
-      left: 50%;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
       transform: translate(-50%, -50%);
-      width: 100%;
-      height: 100%;
+      inline-size: 100%;
+      block-size: 100%;
       background-color: #2f3e46; 
       border-radius: 50%;
       z-index: -1;
@@ -209,7 +208,7 @@
         display: flex;
         align-items: center;
         color:white;
-        width: 70%;
+        inline-size: 70%;
       }
 
       .card_text {
@@ -239,8 +238,9 @@
     flex-direction: row;
     }
     
+
     .delete_account_card{
-        width: 250px;
+        inline-size: 250px;
         border-radius: 12px;
         background-color: #383840FF;
         display: flex;
@@ -264,39 +264,41 @@
 
     .divisor{
       background-color: white;
-      height: 1px;
-      width: 200px;
-      margin-left: 20px; 
+      block-size: 1px;
+      inline-size: 200px;
+      margin-inline-start: 20px; 
     }
 
     .category_description_text{
       font-family: 'Maven Pro';
       color: white;
-      margin-left: 20px; 
+      margin-inline-start: 20px; 
       font-size: 12px;
-      margin-bottom: 18px;
+      margin-block-end: 18px;
     }
 
     .link_settings_button{
       font-size: 14px;
       color: white;
       text-decoration: none;
-      margin-left: 10px;
+      margin-inline-start: 10px;
     }
 
     .divisor{
       background-color: white;
-      height: 1px;
-      width: 200px;
-      margin-left: 20px; 
+      block-size: 1px;
+      inline-size: 200px;
+      margin-inline-start: 20px; 
     }
 
     .text4{
       font-family: 'Maven Pro';
       color: white;
       font-size: 18px;
-      margin-bottom: 18px;
+      margin-block-end: 18px;
     }
+
+     /* PUBLISH INTERFACE */
 
     .publish_imput {
       font-size: 14px;
@@ -306,34 +308,26 @@
       background-color: #ffffff;
       border: transparent;
       border-radius: 8px;
-      margin-left: 20px;
-      width: 80%;
+      inline-size: 55%;
     }
 
     .publish_imput_preview_text{
      color: white;
      font-size: 15px;
-     margin-left: 20px;
-     text-align: left;
+     text-align: start;
     }
 
+
+    .publish_imput_container input {
+     text-align: start;
+    }     
+
     .publish_imput_container{
-     display: flex;
-     flex-direction: column;
-     color: white;
-     font-size: 15px;
-     justify-content: left;
-     align-items:start;
-     text-align: left;
-     width: 100%;
-    }
-  
-    .publish_imput_main_container{
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     width: 100%;
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       inline-size: 100%;
+       text-align: start;
     }
 
     .image_container{
@@ -341,6 +335,23 @@
      align-items: center;
      justify-content: center;
     }
+
+    
+    .center_content{
+      inline-size: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+     justify-content: center;
+    }
+
+    .master_publish_imput_container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
 
     #send_datas_button{
       border: transparent;
@@ -350,8 +361,59 @@
       font-family: 'Maven Pro';
       font-size: 14px;
       padding: 5px;
-      width: 30%;
+      inline-size: 30%;
     }
+
+
+    /* SEARCH INTERFACE CSS */
+
+
+    #search_interface{
+      background-color: #1e1f23;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      flex-grow: 1; 
+      max-block-size: calc(100vh - 110px);
+      overflow-y: auto; 
+      block-size: 100vh;
+      font-family: 'Maven Pro';
+    }
+
+    .display_text{
+      margin-left: 20px;
+      font-size: 13;
+      color: white;
+      font-weight: normal;
+    }
+
+    .preview_display_text{
+      margin-left: 20px;
+      font-size: 15;
+      color: white;
+     
+    }
+
+    .center{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .landscape{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .card6{
+      width: 90%;
+      background-color: #383840FF;
+      border-radius: 12px;
+    }
+
+
+
 
 
 </style>
@@ -366,7 +428,7 @@
   <br>
   <br>
   <img src="https://i.ibb.co/BTdcB5B/Trasparent-icon.png"  style="inline-size: 300px; block-size: 300px;">
-  <h2 class="text2" style="color: white; text-align: center; padding-left: 21px; padding-right: 21px;">Scegli un'opzione per contunuare</h2>
+  <h2 class="text2" style="color: white; text-align: center; padding-inline-start: 21px; padding-inline-end: 21px;">Scegli un'opzione per contunuare</h2>
 
 <br>
       <div class="access_card">
@@ -402,6 +464,8 @@
     <div id="logged_interface">
 
 
+
+
       <div id="up_bar">
         <div style="margin-inline-start: 20px;"></div>
         <button id="notifications_button" class="bar_button"><i class="material-icons" style="color: white;">notifications</i></button>
@@ -411,6 +475,8 @@
         <button id="account_button" class="bar_button"><i class="material-icons" style="color: white;">account_circle</i></button>
         <div style="margin-inline-start: 20px;"></div>
       </div>
+
+
 
  
   
@@ -447,6 +513,8 @@
 
 
 
+
+
     <div id="account_interface">
     
       <br>
@@ -459,6 +527,15 @@
           <i class="material-icons" style="color: white;">lock_reset</i>
           <button class="settings_button" id="reset_password_button">Reset password</button>
       </div>
+
+      <br>
+
+          
+      <div class="settings_div">
+        <div style="margin-inline-start: 20px"></div>
+        <i class="material-icons" style="color: white;">logout</i>
+        <button class="settings_button" id="logout_button">Disconnetti</button>
+    </div>
       
       <br>
       
@@ -469,6 +546,7 @@
       </div>
       
       <br>
+      
       <div class="divisor">
       </div>
       <h3 class="category_description_text">Legalità e trasparenza</h3>
@@ -479,15 +557,13 @@
         <div class="delete_account_card">
           <div id="confirmation_form" style="display: none;">
           
-              <h3 style="font-family: 'Maven Pro' ; color: white; font-size: 18px ; margin-top: 8px; margin-left: 8px; margin-right: 8px; ">Sei sicuro di voler eliminare il tuo account?</h3>
+              <h3 style="font-family: 'Maven Pro' ; color: white; font-size: 18px ; margin-block-start: 8px; margin-inline-start: 8px; margin-inline-end: 8px; ">Sei sicuro di voler eliminare il tuo account?</h3>
               <button class="delete_account_button" id="confirm_delete_button">Conferma</button>
               <button class="delete_account_button" id="cancel_delete_button">Annulla</button>
               <br>   <br>
             </div>
           </div>
         </div>
-      
-      
       
       <div class="settings_div">
           <div style="margin-inline-start: 20px"></div>
@@ -528,9 +604,11 @@
 
 
 
+
+
       <div id="publish_interface">
         <br>
-        <h3 class="text4" style="margin-bottom: 5px;">Pubblica un post</h3>
+        <h3 class="text4" style="margin-block-end: 5px;">Pubblica un post</h3>
         <div class="divisor">
           <br>
           </div>
@@ -538,42 +616,45 @@
             <br>
          
             <div class="image_container">
-            <img src="https://i.ibb.co/HFw4sGK/job-icon.png" style="width: 55%;">
+            <img src="https://i.ibb.co/HFw4sGK/job-icon.png" style="inline-size: 55%;">
             </div>
             <br>
         
-        
-        
-            <div class="publish_imput_main_container">
-              
+
+
+          <div class="center_content">
+            <div style="margin-inline-start: 33%"></div>
+            <div class="publish_imput_container">
           
-              <div class="publish_imput_container">
-                <p class="publish_imput_preview_text" style="margin-bottom: 5px;">Nome</p>
+              
+                <p class="publish_imput_preview_text" style="margin-block-end: 5px;">Nome</p>
               <input class="publish_imput" id="name" required="">
-             </div>
-        
-          <div class="publish_imput_container">
-            <p class="publish_imput_preview_text" style="margin-bottom: 5px;">Città, regione</p>
+            
+
+   
+            <p class="publish_imput_preview_text" style="margin-block-end: 5px;">Città, regione</p>
           <input class="publish_imput" id="region" required="">
-         </div>
+       
         
-          <div class="publish_imput_container">
-            <p class="publish_imput_preview_text" style="margin-bottom: 5px;">Stipendio ideale</p>
+ 
+            <p class="publish_imput_preview_text" style="margin-block-end: 5px;">Stipendio ideale</p>
           <input class="publish_imput" id="salary" required="">
-         </div>
-        
-         <div class="publish_imput_container">
-          <p class="publish_imput_preview_text" style="margin-bottom: 5px;">Descrizione</p>
+
+      
+          <p class="publish_imput_preview_text" style="margin-block-end: 5px;">Descrizione</p>
         <input class="publish_imput" id="description" required="">
-        </div>
+
         
-        <div class="publish_imput_container">
-          <p class="publish_imput_preview_text" style="margin-bottom: 5px;">Email</p>
+      
+          <p class="publish_imput_preview_text" style="margin-block-end: 5px;">Email</p>
         <input class="publish_imput" id="send_email" required="">
-        </div>
+  
         
         
         </div>
+      </div>
+  
+
         <br>
         <br>
         
@@ -586,11 +667,63 @@
         
 
 
+       
+
+        <div id="search_interface">
+
+
+          <br>
+          <br>
+          <div class="center">
+          <img style="width: 150px;" src="https://i.ibb.co/DgtSd6R/search-job.png">
+        </div>
+      
+         <br>
+      
+         <div class="center">
+          <div class="card6">
+         <br>
+         <div class="landscape">
+         <i class="material-icons" style="color: white; margin-left: 20px;">store</i>
+         <p id="company_name_display" class="display_text" style="margin-left: 5px;">Ardugiack</p>
+         </div>
+      
+         <div class="landscape">
+          <i class="material-icons" style="color: white; margin-left: 20px;">map</i>
+         <p id="location_display" class="display_text" style="margin-left: 5px;">Catanzaro</p>
+        </div>
+      
+        <div class="landscape">
+          <i class="material-icons" style="color: white; margin-left: 20px;">payments</i>
+         <p id="salary_display" class="display_text" style="margin-left: 5px;">1800$</p>
+        </div>
+      
+        <div class="landscape">
+          <i class="material-icons" style="color: white; margin-left: 20px;">description</i>
+         <p id="post_content_display" style="margin-right: 20px; margin-left: 5px;" class="display_text">Cerchiamo elettricista per montaggio pannelli solari</p>
+        </div>
+      
+        
+        <div class="landscape">
+          <i class="material-icons" style="color: white; margin-left: 20px;">mail</i>
+         <p id="mail_display" class="display_text" style="margin-left: 5px;">candidature@ardugiack.com</p>
+        </div>
+      </div>
+      </div>
+      
+         <br>
+      
+         <p class="preview_display_text" style="margin-left: 3%; margin-right: 3%; width: 94%; text-align: center;">*swipe up per trovare nuove candidature*</p>
+      
+      </div>
+      
+
+
 
 
     <div id="under_bar">
       <div style="margin-inline-start: 20px;"></div>
-      <button id="community_button" style="background-color: transparent; font-weight: bold; border: none; display: flex; flex-direction: column; align-items: center; color: white; font-family: 'Maven Pro';"><i class="material-icons" style="font-size: 35px;">search</i>Cerca</button>
+      <button id="search_button" style="background-color: transparent; font-weight: bold; border: none; display: flex; flex-direction: column; align-items: center; color: white; font-family: 'Maven Pro';"><i class="material-icons" style="font-size: 35px;">search</i>Cerca</button>
       <div style="flex: 1;"></div>
       <button id="home_button" style="font-weight: bold; background-color: transparent; border: none; display: flex; flex-direction: column; align-items: center; color: white; font-family: 'Maven Pro';"><i class="material-icons" style="font-size: 35px;">home</i> Home</button>
       <div style="flex: 1;"></div>
@@ -608,7 +741,7 @@
 
 
 
- <!-- Carica la versione 8.6.1 delle librerie di Firebase -->
+ 
 <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
@@ -627,22 +760,38 @@
     document.getElementById("account_interface").style.display = "flex";
     document.getElementById("home_page").style.display = "none";
     document.getElementById("publish_interface").style.display = "none";
+    document.getElementById("search_interface").style.display = "none";
    
   });
 
   document.getElementById("home_button").addEventListener("click", function() {
   
-  document.getElementById("home_page").style.display = "flex";
   document.getElementById("publish_interface").style.display = "none";
   document.getElementById("account_interface").style.display = "none";
+  document.getElementById("search_interface").style.display = "none";
+  document.getElementById("home_page").style.display = "flex";
+ 
 });
 
 document.getElementById("publish_button").addEventListener("click", function() {
   
-  document.getElementById("publish_interface").style.display = "flex";
   document.getElementById("home_page").style.display = "none";
   document.getElementById("account_interface").style.display = "none";
+  document.getElementById("search_interface").style.display = "none";
+  document.getElementById("publish_interface").style.display = "flex";
+
 });
+
+
+document.getElementById("search_button").addEventListener("click", function() {
+  
+  document.getElementById("publish_interface").style.display = "none";
+  document.getElementById("home_page").style.display = "none";
+  document.getElementById("account_interface").style.display = "none";
+  document.getElementById("search_interface").style.display = "flex";
+});
+
+
 
 
 
@@ -669,6 +818,7 @@ document.getElementById("publish_button").addEventListener("click", function() {
         document.getElementById("publish_interface").style.display = "none";
         document.getElementById("access_screen").style.display = "none";
         document.getElementById("account_interface").style.display = "none";
+        document.getElementById("search_interface").style.display = "none";
         document.getElementById("logged_interface").style.display = "block";
         document.getElementById("home_page").style.display = "flex";
         document.getElementById("under_bar").style.display = "flex";

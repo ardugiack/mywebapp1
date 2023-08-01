@@ -22,8 +22,8 @@
    /* CLASSI CON ID */
 
    #access_screen{
-  font-family: 'Maven Pro';
-  background-color: #1e1f23;
+      font-family: 'Maven Pro';
+      background-color: #1e1f23;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -310,7 +310,7 @@
       background-color: #ffffff;
       border: transparent;
       border-radius: 8px;
-      inline-size: 55%;
+    
     }
 
     .publish_imput_preview_text{
@@ -327,10 +327,13 @@
     .publish_imput_container{
        display: flex;
        flex-direction: column;
-       align-items: flex-start;
-       inline-size: 100%;
+       justify-content: center;
+       inline-size: 60%;
        text-align: start;
+ 
+
     }
+
 
     .image_container{
      display: flex;
@@ -344,7 +347,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-     justify-content: center;
+      justify-content: center;
     }
 
     .master_publish_imput_container{
@@ -383,14 +386,14 @@
     }
 
     .display_text{
-      margin-left: 20px;
+      margin-inline-start: 20px;
       font-size: 13;
       color: white;
       font-weight: normal;
     }
 
     .preview_display_text{
-      margin-left: 20px;
+      margin-inline-start: 20px;
       font-size: 15;
       color: white;
      
@@ -409,13 +412,25 @@
     }
 
     .card6{
-      width: 90%;
+      inline-size: 90%;
       background-color: #383840FF;
       border-radius: 12px;
     }
 
+    #reset_password_form{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-
+    .reset_password_card{
+      display: flex;
+      flex-direction: column;
+      border-radius: 13px;
+      background-color: #383840FF;
+      padding: 5px ;
+      width: 25%;
+    }
 
 
 </style>
@@ -431,8 +446,7 @@
   <br>
   <img src="https://i.ibb.co/BTdcB5B/Trasparent-icon.png"  style="inline-size: 300px; block-size: 300px;">
   <h2 class="text2" style="color: white; text-align: center; padding-inline-start: 21px; padding-inline-end: 21px;">Scegli un'opzione per contunuare</h2>
-
-<br>
+   <br>
       <div class="access_card">
         <h2 class="access_card_title">Accedi</h2>
         <label class="access_label" for="login-email">Email:</label> 
@@ -467,7 +481,6 @@
 
 
 
-
       <div id="up_bar">
         <div style="margin-inline-start: 20px;"></div>
         <button id="notifications_button" class="bar_button"><i class="material-icons" style="color: white;">notifications</i></button>
@@ -486,12 +499,17 @@
         <br>
         <br>
         <i class="material-icons" style="font-size: 120px; color:#fff;">query_stats</i>
-  
+    <br>
+        <div class="card">
+          <i class="material-icons" style="color:white; font-size: 30px">flag</i>
+          <div style="margin-inline-start: 20px;"></div>
+          <h2 class="card_text">Lasciare recensioni negative può impedire la nostra espansione e il conseguente migioramento dei nostri servizi, puoi inviare i tuoi suggerimenti a <a href="mailto:ardugiack@gmail.com" style="color: white;">ardugiack@gmail.com</a>, saranno tenuti in considerazione</h2>
+      </div>
     <br>
         <div class="card">
             <i class="material-icons" style="color:white; font-size: 30px">developer_mode</i>
             <div style="margin-inline-start: 20px;"></div>
-            <h2 class="card_text">L'app è ancora in fase di sviluppo, pertanto, durante il suo utilizzo possono verificarsi dei bug</h2>
+            <h2 class="card_text">L'app è in fase di lancio e di sviluppo, durante il suo utilizzo alcune funzioni potrebbero non essere disponibili, tali disagi sono dovuti al numero limitato di utenti che utilizzano la nostra app</h2>
         </div>
     <br>
       <div class="card">   
@@ -525,10 +543,10 @@
         <h3 class="category_description_text">Gestione account</h3>
       
         <div class="settings_div">
-          <div style="margin-inline-start: 20px"></div>
+          <div style="margin-inline-start: 20px;"></div>
           <i class="material-icons" style="color: white;">lock_reset</i>
           <button class="settings_button" id="reset_password_button">Reset password</button>
-      </div>
+        </div>
 
       <br>
 
@@ -536,7 +554,7 @@
       <div class="settings_div">
         <div style="margin-inline-start: 20px"></div>
         <i class="material-icons" style="color: white;">logout</i>
-        <button class="settings_button" id="logout_button">Disconnetti</button>
+        <button class="settings_button" id="logoutBtn">Disconnetti</button>
     </div>
       
       <br>
@@ -553,7 +571,23 @@
       </div>
       <h3 class="category_description_text">Legalità e trasparenza</h3>
       
-      
+
+
+      <form id="reset_password_form" style="display: none; width: 100%;">
+        <div class="reset_password_card">
+        <h2 style="color: white;">Reset password</h2>
+        <input type="email" style="color: white; background-color: #212529; padding: 5px; border-radius: 12px; border: transparent; font-family: 'Maven Pro';" id="emailInput" placeholder="Inserisci l'indirizzo email" required>
+        <br>
+        <div class="landscape" style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+        <button type="button" id="resetPasswordBtn" style="border-radius: 12px; border: transparent; padding: 5px; background-color: #52796f; color: white; font-family: 'Maven Pro';">Reset Password</button>
+        <div style="margin-inline-start: 20px"></div>
+        <button type="button" id="CancelResetPasswordBtn" style="border-radius: 12px; border: transparent; padding: 5px; background-color: #52796f; color: white; font-family: 'Maven Pro';">Annulla</button>
+      </div>
+    </div>
+      </form>
+
+
+
       <div class="delete_account_card_container">
       
         <div class="delete_account_card">
@@ -562,7 +596,8 @@
               <h3 style="font-family: 'Maven Pro' ; color: white; font-size: 18px ; margin-block-start: 8px; margin-inline-start: 8px; margin-inline-end: 8px; ">Sei sicuro di voler eliminare il tuo account?</h3>
               <button class="delete_account_button" id="confirm_delete_button">Conferma</button>
               <button class="delete_account_button" id="cancel_delete_button">Annulla</button>
-              <br>   <br>
+              <br>   
+              <br>
             </div>
           </div>
         </div>
@@ -618,14 +653,14 @@
             <br>
          
             <div class="image_container">
-            <img src="https://i.ibb.co/HFw4sGK/job-icon.png" style="inline-size: 55%;">
+            <img src="https://i.ibb.co/HFw4sGK/job-icon.png" style="inline-size: 150px;">
             </div>
             <br>
         
 
 
-          <div class="center_content">
-            <div style="margin-inline-start: 33%"></div>
+       
+         
             <div class="publish_imput_container">
           
               
@@ -654,16 +689,14 @@
         
         
         </div>
-      </div>
+   
   
 
         <br>
         <br>
         
-        <button id="send_datas_button" onclick="submitData()">Pubblica</button>
         
-        <br>
-        <br>
+        <button id="send_datas_button" onclick="submitData()">Pubblica</button>
         
         </div>
         
@@ -677,48 +710,55 @@
           <br>
           <br>
           <div class="center">
-          <img style="width: 150px;" src="https://i.ibb.co/DgtSd6R/search-job.png">
+          <img style="inline-size: 150px;" src="https://i.ibb.co/DgtSd6R/search-job.png">
         </div>
       
          <br>
       
          <div class="center">
           <div class="card6">
-         <br>
+         <br> 
          <div class="landscape">
-         <i class="material-icons" style="color: white; margin-left: 20px;">store</i>
-         <p id="company_name_display" class="display_text" style="margin-left: 5px;">Ardugiack</p>
+         <i class="material-icons" style="color: white; margin-inline-start: 20px;">store</i>
+         <p id="company_name_display" class="display_text" style="margin-inline-start: 5px;">Carico...</p>
          </div>
       
          <div class="landscape">
-          <i class="material-icons" style="color: white; margin-left: 20px;">map</i>
-         <p id="location_display" class="display_text" style="margin-left: 5px;">Catanzaro</p>
+          <i class="material-icons" style="color: white; margin-inline-start: 20px;">map</i>
+         <p id="location_display" class="display_text" style="margin-inline-start: 5px;">Carico...</p>
         </div>
       
         <div class="landscape">
-          <i class="material-icons" style="color: white; margin-left: 20px;">payments</i>
-         <p id="salary_display" class="display_text" style="margin-left: 5px;">1800$</p>
+          <i class="material-icons" style="color: white; margin-inline-start: 20px;">payments</i>
+         <p id="salary_display" class="display_text" style="margin-inline-start: 5px;">carico...</p>
         </div>
       
         <div class="landscape">
-          <i class="material-icons" style="color: white; margin-left: 20px;">description</i>
-         <p id="post_content_display" style="margin-right: 20px; margin-left: 5px;" class="display_text">Cerchiamo elettricista per montaggio pannelli solari</p>
+          <i class="material-icons" style="color: white; margin-inline-start: 20px;">description</i>
+         <p id="post_content_display" style="margin-inline-end: 20px; margin-inline-start: 5px;" class="display_text">Carico...</p>
         </div>
       
         
         <div class="landscape">
-          <i class="material-icons" style="color: white; margin-left: 20px;">mail</i>
-         <p id="mail_display" class="display_text" style="margin-left: 5px;">candidature@ardugiack.com</p>
+          <i class="material-icons" style="color: white; margin-inline-start: 20px;">mail</i>
+         <p id="mail_display" class="display_text" style="margin-inline-start: 5px;">Carico...</p>
         </div>
       </div>
       </div>
       
          <br>
       
-         <p class="preview_display_text" style="margin-left: 3%; margin-right: 3%; width: 94%; text-align: center;">*swipe up per trovare nuove candidature*</p>
+         <div class="center">
+         <i class="material-icons" style="color: white;">expand_less</i>
+      </div>
+
+         <p class="preview_display_text" style="margin-inline-start: 3%; margin-inline-end: 3%; inline-size: 94%; text-align: center;">*swipe up per trovare nuove candidature*</p>
       
       </div>
       
+
+
+ 
 
 
 
@@ -791,6 +831,73 @@ document.getElementById("search_button").addEventListener("click", function() {
   document.getElementById("home_page").style.display = "none";
   document.getElementById("account_interface").style.display = "none";
   document.getElementById("search_interface").style.display = "flex";
+
+
+
+      // Ottieni un riferimento al database
+      const database = firebase.database();
+
+// Funzione per ottenere il valore da Firebase e visualizzarlo
+function getValueAndDisplay() {
+  const companyNameRef = database.ref('/WEB_companies_datas/XZXpRUAvBuN8NrlW9nUbvuRyW3f1/name');
+  const companyLocationRef = database.ref('/WEB_companies_datas/XZXpRUAvBuN8NrlW9nUbvuRyW3f1/region');
+  const companySalaryRef = database.ref('/WEB_companies_datas/XZXpRUAvBuN8NrlW9nUbvuRyW3f1/salary');
+  const companyDescriptionRef = database.ref('/WEB_companies_datas/XZXpRUAvBuN8NrlW9nUbvuRyW3f1/description');
+  const companyMailRef = database.ref('/WEB_companies_datas/XZXpRUAvBuN8NrlW9nUbvuRyW3f1/mail');
+
+  // Leggi il valore da Firebase
+  companyNameRef.once('value')
+    .then(snapshot => {
+      const companyNameValue = snapshot.val();
+      // Visualizza il valore nell'elemento HTML
+      const companyNameRef = document.getElementById('company_name_display');
+      companyNameRef.innerText = companyNameValue;
+    })
+
+    companyLocationRef.once('value')
+    .then(snapshot => {
+      const companyLocationValue = snapshot.val();
+      // Visualizza il valore nell'elemento HTML
+      const companyLocationRef = document.getElementById('location_display');
+      companyLocationRef.innerText = companyLocationValue;
+    })
+
+    companySalaryRef.once('value')
+    .then(snapshot => {
+      const companySalaryValue = snapshot.val();
+      // Visualizza il valore nell'elemento HTML
+      const companySalaryRef = document.getElementById('salary_display');
+      companySalaryRef.innerText = companySalaryValue;
+    })
+
+    companyDescriptionRef.once('value')
+    .then(snapshot => {
+      const companyDescriptionValue = snapshot.val();
+      // Visualizza il valore nell'elemento HTML
+      const companyDescriptionRef = document.getElementById('post_content_display');
+      companyDescriptionRef.innerText = companyDescriptionValue;
+    })
+
+    companyMailRef.once('value')
+    .then(snapshot => {
+      const companyMailValue = snapshot.val();
+      // Visualizza il valore nell'elemento HTML
+      const companyMailRef = document.getElementById('mail_display');
+      companyMailRef.innerText = companyMailValue;
+    })
+
+
+    .catch(error => {
+      console.error("Errore nell'ottenere il valore da Firebase:", error);
+    });
+}
+
+// Chiamata alla funzione per ottenere e visualizzare il valore all'avvio
+getValueAndDisplay();
+
+
+
+
 });
 
 
@@ -841,6 +948,7 @@ document.getElementById("search_button").addEventListener("click", function() {
   });
 
 
+
     // Funzione di registrazione
     function register() {
       var email = document.getElementById("email").value;
@@ -863,8 +971,6 @@ document.getElementById("search_button").addEventListener("click", function() {
           console.log("Errore durante la registrazione:", errorCode, errorMessage);
         });
     }
-
-
 
 
 
@@ -892,9 +998,58 @@ document.getElementById("search_button").addEventListener("click", function() {
     }
 
 
+// RESET PASSWORD ACCOUNT
+
+
+  // Ottieni il riferimento agli elementi della finestra modale e del pulsante per aprire la finestra
+  var resetPasswordForm = document.getElementById("reset_password_form");
+  var resetPasswordButton = document.getElementById("reset_password_button");
+  var CancelResetPasswordButton = document.getElementById("CancelResetPasswordBtn");
+  
+  CancelResetPasswordButton.addEventListener("click", function () {
+    // Mostra il form per il reset della password
+    resetPasswordForm.style.display = "none";
+  });
+
+
+  // Aggiungi un gestore di eventi al pulsante che apre il form per il reset della password
+  resetPasswordButton.addEventListener("click", function () {
+    // Mostra il form per il reset della password
+    resetPasswordForm.style.display = "flex";
+  });
 
 
 
+ document.getElementById("resetPasswordBtn").addEventListener("click", function () {
+    // Ottieni l'indirizzo email inserito dall'utente
+    var email = document.getElementById("emailInput").value;
+
+    // Invia l'email di reset password
+    firebase.auth().sendPasswordResetEmail(email)
+      .then(function() {
+        // Email inviata con successo
+        alert("Un'email di reset password è stata inviata al tuo indirizzo.");
+      })
+      .catch(function(error) {
+        // Gestisci eventuali errori
+        alert("Si è verificato un errore durante l'invio dell'email di reset password: " + error.message);
+      });
+  });
+
+
+  // DISCONNESSIONE ACCOUNT
+
+
+document.getElementById("logoutBtn").addEventListener("click", function () {
+    // Disconnetti l'utente da Firebase
+    firebase.auth().signOut().then(function() {
+      // Operazione di disconnessione riuscita
+      alert("Disconnesso con successo!");
+    }).catch(function(error) {
+      // Gestisci eventuali errori
+      alert("Errore durante la disconnessione: " + error.message);
+    });
+  });
 
 
         // ELIMINAZIONE ACCOUNT
@@ -958,7 +1113,7 @@ function submitData() {
 
 
   // Riferimento al percorso nel database usando l'UID e il bucket
-  var databaseRef = firebase.database().ref("user_posts/" + uid);
+  var databaseRef = firebase.database().ref("WEB_user_posts/" + uid);
 
   // Inserisci i dati nel database come oggetto
   databaseRef.set({

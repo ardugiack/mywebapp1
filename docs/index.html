@@ -1046,7 +1046,7 @@ getValueAndDisplay();
           console.log("Registrazione avvenuta con successo");
 
           // Nascondi il container iniziale
-          document.getElementById("initial-container").style.display = "none";
+          document.getElementById("access_screen").style.display = "none";
           // Mostra il container vuoto
           document.getElementById("home_page").style.display = "block";
         })
@@ -1076,11 +1076,10 @@ function login() {
       // Accesso avvenuto con successo
       alert("Accesso avvenuto con successo");
 
-      // Nascondi il container iniziale
-      document.getElementById("initial-container").style.display = "none";
-      // Mostra il container vuoto
+      document.getElementById("access_screen").style.display = "none";
       document.getElementById("home_page").style.display = "block";
     })
+
     .catch(function(error) {
       // Gestisci gli errori di accesso
       var errorMessage = error.message;

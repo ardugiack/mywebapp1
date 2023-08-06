@@ -16,7 +16,6 @@
       margin: 0;
       font-family: 'Maven Pro', sans-serif;
       background-color: #1e1f23;
-     
    }
 
    /* CLASSI CON ID */
@@ -26,8 +25,9 @@
       background-color: #1e1f23;
       display: flex;
       flex-direction: column;
+      height: 100%;
       align-items: center;
-      block-size: 100vh;
+      justify-content: center;
       overflow-y: auto; 
 }
 
@@ -98,7 +98,14 @@
 
     
       
-   
+   .forgot_password_card{
+    background-color: #2f3e46;
+    padding: 20px;
+    border-radius: 15px;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+   }
 
  
 
@@ -450,7 +457,7 @@
 
  <div id="access_screen">  
 
-   <div id="login_div" style="width: 100%; justify-content: center; margin-top: 45%;">
+   <div id="login_div" style="width: 100%; height: 100%; justify-content: center; align-items: center;">
       <div class="access_card">
       <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; ">
         <p style="color: white; font-weight: bold; font-size: 25px;">Bentornato, accedi</p>
@@ -465,12 +472,17 @@
           <p style="color: white; text-align: center; font-size: 15px;">Non hai un account?</p> 
           <button id="signup_choise_button" style="background-color: transparent; color: #00b4d8; border: transparent; font-size: 15px; font-family: 'Maven Pro'; font-weight: bold;">Registrati</button>
           </div>
-        <button class="access_button" onclick="login()">Accedi</button>
+          <div style="justify-content: left;">
+          <button id="forgot_password_button" style="background-color: transparent; color: #00b4d8; border: transparent; font-size: 15px; font-family: 'Maven Pro'; font-weight: bold; margin-bottom: 10px;">Password dimenticata?</button>
+          </div>
+          <button class="access_button" onclick="login()">Accedi</button>
+        </div>
+    
       </div>
-    </div>
+ 
 
    
-     <div id="signup_div" style="display: none; width: 100%; justify-content: center; margin-top: 45%;">
+     <div id="signup_div" style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center;">
       <div class="access_card">
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; ">
           <p style="color: white; font-weight: bold; font-size: 25px; margin-right: 20px;">Benvenuto, registrati</p>
@@ -487,9 +499,23 @@
           </div>
         <button class="access_button" onclick="register()">Registrati</button>
       </div>
-      <br>
     </div>
  
+
+    <form id="reset_password_form" style="display: none; inline-size: 100%;">
+      <div class="forgot_password_card">
+      <h2 style="color: white;">Password dimenticata</h2>
+      <div style="justify-content: center; align-items: center;">
+      <input type="email" style="color: white; background-color: #212529; padding: 5px; border-radius: 12px; border: transparent;margin-bottom: 10px; width: 85%; font-family: 'Maven Pro';" id="emailInput" placeholder="Inserisci l'indirizzo email" required>
+      </div>
+      <div class="landscape" style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+      <button type="button" id="resetPasswordBtn" style="border-radius: 12px; border: transparent; padding: 5px; background-color: #52796f; color: white; font-family: 'Maven Pro';">Invia mail</button>
+      <div style="margin-inline-start: 20px"></div>
+      <button type="button" id="cancel_forgot_password_button" style="border-radius: 12px; border: transparent; padding: 5px; background-color: #52796f; color: white; font-family: 'Maven Pro';">Annulla</button>
+    </div>
+  </div>
+    </form>
+
     <div style="display: flex; flex-direction: row; flex-wrap: wrap; width: 95%; align-items: center; justify-content: center; margin-top: 30px;">
       <p style="color: white; font-size: 15px; margin: 0; white-space: nowrap;">Proseguendo accetti i</p>
       <a style="color: white; margin: 0; white-space: nowrap; margin-left: 5px; margin-right: 5px;" href="https://sites.google.com/view/ardugiack/terms-of-use-trova-lavoro-velocemente">Termini di utilizzo</a>
@@ -823,6 +849,24 @@
 
 // BOTTONI
 
+
+ document.getElementById("forgot_password_button").addEventListener("click", function() {
+
+   document.getElementById("login_div").style.display = "none";
+   document.getElementById("reset_password_form").style.display = "flex";
+
+  });
+
+ document.getElementById("cancel_forgot_password_button").addEventListener("click", function() {
+  
+  document.getElementById("reset_password_form").style.display = "none";
+  document.getElementById("login_div").style.display = "flex";
+  
+  });
+
+
+
+
   document.getElementById("signup_choise_button").addEventListener("click", function() {
     
     document.getElementById("signup_div").style.display = "flex";
@@ -1006,38 +1050,48 @@ getValueAndDisplay();
           // Mostra il container vuoto
           document.getElementById("home_page").style.display = "block";
         })
+
         .catch(function(error) {
-          // Gestisci gli errori di registrazione
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          console.log("Errore durante la registrazione:", errorCode, errorMessage);
-        });
+    // Gestisci gli errori di registrazione
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    if (errorCode === "auth/email-already-in-use") {
+      alert("L'indirizzo email è già in uso. Si prega di utilizzare un altro indirizzo.");
+    } else {
+      alert("Errore durante la registrazione. Si prega di riprovare più tardi.");
+    }
+   });
     }
 
 
 
-    // Funzione di accesso
-    function login() {
-      var email = document.getElementById("login-email").value;
-      var password = document.getElementById("login-password").value;
+   
+  // Funzione di accesso
+function login() {
+  var email = document.getElementById("login-email").value;
+  var password = document.getElementById("login-password").value;
 
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(function(user) {
-          // Accesso avvenuto con successo
-          alert.log("Accesso avvenuto con successo");
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(function(user) {
+      // Accesso avvenuto con successo
+      alert("Accesso avvenuto con successo");
 
-          // Nascondi il container iniziale
-          document.getElementById("initial-container").style.display = "none";
-          // Mostra il container vuoto
-          document.getElementById("home_page").style.display = "block";
-        })
-        .catch(function(error) {
-          // Gestisci gli errori di accesso
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          console.log("Errore durante l'accesso:", errorCode, errorMessage);
-        });
-    }
+      // Nascondi il container iniziale
+      document.getElementById("initial-container").style.display = "none";
+      // Mostra il container vuoto
+      document.getElementById("home_page").style.display = "block";
+    })
+    .catch(function(error) {
+      // Gestisci gli errori di accesso
+      var errorMessage = error.message;
+      if (errorMessage.includes("password")) {
+        alert("Password errata. Si prega di riprovare");
+      } else {
+        alert("Errore durante l'accesso: " + errorMessage);
+      }
+    });
+}
+
 
 
 // RESET PASSWORD ACCOUNT
